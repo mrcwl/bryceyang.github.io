@@ -21,6 +21,7 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 ```
 
 **切换shell从bash到zsh**
+
 首先查看可用shell列表：
 
 ``` shell
