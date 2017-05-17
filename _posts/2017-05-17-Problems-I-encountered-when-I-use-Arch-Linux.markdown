@@ -6,7 +6,7 @@ category: Linux
 tag: Linux 
 ---
 
-使用了Arch快半年了，这个文章实在是写晚了。。
+使用了Arch快半年了，这个文章实在是写晚了。。:joy: :joy:
 #### oh my zsh 安装使用
 **首先安装Zsh**
 
