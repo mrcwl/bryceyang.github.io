@@ -15,6 +15,10 @@ highlighter: rouge
 # supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
 cover_color: 
 
+# emoji support
+gems:
+        -jemoji
+
 # The blog button should not be removed.
 blog_button:
     title: Blog
