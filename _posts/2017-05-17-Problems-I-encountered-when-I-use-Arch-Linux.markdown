@@ -39,5 +39,19 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 ``` shell
 chsh -s /usr/bin/zsh
 ```
+#### error: failed to commit transaction (conflicting files)
+这个问题已经碰到了几次，原因暂未知。
 
+``` shell
+error: failed to commit transaction (conflicting files)
+python-markupsafe: /usr/lib/python3.6/site-packages/MarkupSafe-1.0-py3.6.egg-info/PKG-INFO exists in filesystem
+python-markupsafe: /usr/lib/python3.6/site-packages/MarkupSafe-1.0-py3.6.egg-info/SOURCES.txt exists in filesystem
+python-markupsafe: /usr/lib/python3.6/site-packages/MarkupSafe-1.0-py3.6.egg-info/dependency_links.txt exists in filesystem
+```
+** 解决方法 **
+首先，检测一下冲突文件有没有包在使用
+```
+pacman -Qo /path/to/file
+```
+结果一般就是没有包在使用。。所以下面就rm掉所有引起冲突的文件就行了，问题解决。
 
