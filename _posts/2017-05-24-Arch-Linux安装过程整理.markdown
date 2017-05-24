@@ -1,0 +1,272 @@
+---
+layout: post
+title: Arch linux安装过程整理
+data: 2017-05-24 20:32:00.000000000 +9:00
+category: Linux
+tag: Linux
+---
+
+**整理一下这个教程便于以后可以无脑重装Arch Linux，美滋滋啊。**
+
+###准备以及分区
+
+**准备**
+-准备内容
+  1.USB 
+  2.Arch Linux ISO image
+  [Arch Linux Download Addr](https://www.archlinux.org/download/)
+-创建启动盘
+  1.On windows: Rufus
+  2.On linux: sudo dd if=/path\_to\_arch\_.iso of=/dev/sdx
+>sdx代表你的U盘，可以用lsblk命令查看得到。
+
+*接下来就是设置bios启动方式，UEFI+GPT，美滋滋啊*
+
+**设置USB为下一次的引导路径，然后重启之后我们就能进入Arch安装环境了**
+
+*查看EFI mode是否开启*
+
+`efivar -l`
+
+如果有输出，就说明已经开启。
+
+**分区**
+
+`lsblk`
+
+```
+gdisk /dev/sdx (x representing your drive)
+x
+z
+y
+y
+```
+创建分区
+
+`cgdisk /dev/sdx`
+
+sda
+-sda1(boot partition)
+-sda2(our swap partition)
+-sda3(our root partition)
+-sda4(our home partition)
+
+```
+[New] Press Enter
+First Sector: Leave this blank ->press Enter
+Size in sectors: 1024MiB ->press Enter
+Hex Code: EF00 press Enter
+Enter new partition name: boot ->press Enter
+```
+EF00千万不要弄错
+
+```
+[New] Press Enter
+First Sector: Leave this blank ->press Enter
+Size in sectors: 8GiB ->press Enter
+Hex Code: 8200 ->press Enter
+Enter new partition name: swap ->press Enter
+```
+8200千万不要弄错
+
+下面建立root和home分区代号就是默认的8300了，自己控制一下大小以及方向就行了。
+
+分区全部建立完毕之后，我们就要设置分区格式了。
+
+```shell
+mkfs.fat -F32 /dev/sda1
+mkswap /dev/sda2
+swapon /dev/sda2
+mkfs.ext4 /dev/sda3
+mkfs.ext4 /dev/sda4
+```
+
+####安装Arch 以及配置启动
+
+-挂载分区
+```shell
+mount /dev/sda3 /mnt
+mkdir /mnt/boot
+mkdir /mnt/home
+mount /dev/sda1 /mnt/boot
+mount /dev/sda4 /mnt/home
+```
+设置mirrorlist
+>学校有ipv6的学生可以用清华的源，ipv6直连，美滋滋。
+
+`nano /etc/pacman.d/mirrorlist`
+然后在最前面加上
+
+```
+## Tsinghua
+Server = http://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+```
+然后
+
+```
+pacstrap -i /mnt base base-devel
+```
+
+然后创建fstab文件到新安装系统：
+
+```
+genfstab -U -p /mnt >> /mnt/etc/fstab
+```
+
+可以通过`nano /mnt/etc/fstab`查看是否创建成功
+
+**接下来就可以切换到我们新安装的系统了**
+
+`arch-chroot /mnt`
+
+接下来设置语言，linux下界面语言还是用英文吧。
+
+`nano /etc/locale.gen`
+
+然后取消掉`en_US.UTF-8`和`zh_CN.UTF-8`前面的注释。
+
+使其生效：
+
+`locale-gen`
+
+接下来设置语言：
+
+```shell
+echo LANG=en_US.UTF-8 > /etc/locale.conf
+export LANG=en_US.UTF-8
+```
+
+设置时区：
+
+`ln -s /usr/share/zoneinfo/Asia/Shanghai > /etc/localtime`
+
+请自觉使用tab补全以免出错。
+
+设置硬件时钟：
+
+`hwclock --systohc --utc`
+
+设置主机名：
+
+`echo hostname > /etc/hostname`
+
+然后编辑`pacman.conf`取消multilib前面的注释：
+
+```
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+```
+
+然后必须添加的yaourt
+
+```
+[archlinuxfr]
+SigLevel = Never
+Server = http://repo.archlinux.fr/$arch
+```
+一定要注意大小写。
+
+必须添加的archlinuxcn源，里面有很多中国特色软件，比如网易云、有道词典之类的，同样推荐清华源。
+
+```
+[archlinuxcn]
+SigLevel = Optional TrustedOnly
+Server = http://repo.archlinuxcn.org/$arch
+```
+然后安装`archlinuxcn-keyring`包以导入GPG key。
+
+这个时候就可以保存`pacman.conf`文件了。
+
+设置root账户的密码：
+
+`passwd`
+
+添加日常用户：
+
+`useradd -m -g users -G wheel,storage,power -s /bin/bash yourusername`
+
+设置密码：
+
+`passwd yourusername`
+
+然后是设置sudoers：
+
+`EDITOR=nano visudo`
+
+然后取消注释：
+
+`%wheel ALL=(ALL) ALL`
+
+然后让使用sudo命令的用户必须输入root密码：
+
+`Defaults rootpw`
+
+然后就可以保存文件了。
+
+安装补全命令：
+
+`pacman -S bash-completion`
+
+-安装引导
+
+确保EFI变量被挂载
+
+`mount -t efivarfs efivarfs /sys/firmware/efi/efivars`
+
+使用Gummiboot作为我们的启动管理，这个已经整合到了bootctl/system-boot里，所以安装方式为：
+
+`bootctl install`
+
+下面，我需要把/root分区的PARTUUID加入到启动设置里：
+
+`blkid -s PARTUUID -o value /dev/sdxY`
+
+x代表设备代号，本次为a，Y是/root partition的排号，本次为3.
+
+然后添加gummiboot manager配置文件：
+
+```shell
+nano /boot/loader/entries/arch.conf
+# 下面是内容：
+title Arch Linux
+linux /vmlinuz-linux
+initrd /initramfs-linux.img
+options root=PARTUUID=上个命令得到的 rw
+```
+
+保存并退出
+
+添加intel支持：
+
+`pacman -S intel-ucode`
+
+然后写入到启动管理设置里：
+
+```shell
+nano /boot/loader/entries/arch.conf
+initrd /intel-ucode.img
+initrd /initramfs-linux.img
+```
+
+这个时候基本的操作已经完成了，我们可以重启试试了。
+
+```shell
+exit
+umount -R /mnt
+reboot
+```
+###安装xfce4桌面环境
+
+```shell
+sudo pacman -S mesa
+sudo pacman -S xorg-server xorg-server-common xorg-xinit
+sudo pacman -S xfce4
+sudo pacman -S xfce4-goodies
+sudo pacman -S sddm
+sudo systemctl enable sddm.service
+reboot
+```
+安装完成，可以使用了。美滋滋。
+
+
+
