@@ -8,23 +8,31 @@ tag: Linux
 
 **整理一下这个教程便于以后可以无脑重装Arch Linux，美滋滋啊。**
 
-###准备以及分区
+### 准备以及分区
 
 **准备**
--准备内容
-  1.USB 
+
+- 准备内容
+
+  1.USB
+ 
   2.Arch Linux ISO image
+
   [Arch Linux Download Addr](https://www.archlinux.org/download/)
--创建启动盘
+
+- 创建启动盘
+
   1.On windows: Rufus
+
   2.On linux: sudo dd if=/path\_to\_arch\_.iso of=/dev/sdx
+
 >sdx代表你的U盘，可以用lsblk命令查看得到。
 
-*接下来就是设置bios启动方式，UEFI+GPT，美滋滋啊*
+接下来就是设置bios启动方式，UEFI+GPT，美滋滋啊
 
 **设置USB为下一次的引导路径，然后重启之后我们就能进入Arch安装环境了**
 
-*查看EFI mode是否开启*
+查看EFI mode是否开启
 
 `efivar -l`
 
@@ -46,10 +54,14 @@ y
 `cgdisk /dev/sdx`
 
 sda
--sda1(boot partition)
--sda2(our swap partition)
--sda3(our root partition)
--sda4(our home partition)
+
+- sda1(boot partition)
+
+- sda2(our swap partition)
+
+- sda3(our root partition)
+
+- sda4(our home partition)
 
 ```
 [New] Press Enter
@@ -81,9 +93,9 @@ mkfs.ext4 /dev/sda3
 mkfs.ext4 /dev/sda4
 ```
 
-####安装Arch 以及配置启动
+### 安装Arch 以及配置启动
 
--挂载分区
+- 挂载分区
 ```shell
 mount /dev/sda3 /mnt
 mkdir /mnt/boot
@@ -95,13 +107,14 @@ mount /dev/sda4 /mnt/home
 >学校有ipv6的学生可以用清华的源，ipv6直连，美滋滋。
 
 `nano /etc/pacman.d/mirrorlist`
+
 然后在最前面加上
 
 ```
-## Tsinghua
+# Tsinghua
 Server = http://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 ```
-然后
+然后安装系统
 
 ```
 pacstrap -i /mnt base base-devel
@@ -152,12 +165,14 @@ export LANG=en_US.UTF-8
 
 然后编辑`pacman.conf`取消multilib前面的注释：
 
+这个是为了在64位机器上运行32位程序
+
 ```
 [multilib]
 Include = /etc/pacman.d/mirrorlist
 ```
 
-然后必须添加的yaourt
+然后强烈推荐添加的yaourt
 
 ```
 [archlinuxfr]
@@ -171,7 +186,7 @@ Server = http://repo.archlinux.fr/$arch
 ```
 [archlinuxcn]
 SigLevel = Optional TrustedOnly
-Server = http://repo.archlinuxcn.org/$arch
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 ```
 然后安装`archlinuxcn-keyring`包以导入GPG key。
 
@@ -207,7 +222,7 @@ Server = http://repo.archlinuxcn.org/$arch
 
 `pacman -S bash-completion`
 
--安装引导
+- 安装引导
 
 确保EFI变量被挂载
 
@@ -255,7 +270,7 @@ exit
 umount -R /mnt
 reboot
 ```
-###安装xfce4桌面环境
+### 安装xfce4桌面环境
 
 ```shell
 sudo pacman -S mesa
