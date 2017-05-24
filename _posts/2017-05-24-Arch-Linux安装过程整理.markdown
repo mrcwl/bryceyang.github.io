@@ -283,5 +283,49 @@ reboot
 ```
 安装完成，可以使用了。美滋滋。
 
+### 安装Tex Live
 
+```shell
+yaourt -S texlive-most
+yaourt -S texlive-langchinese
+yaourt -S texstudio
+```
+安装完成之后使用`tex --version`测试：
+
+```
+-<%>- tex --version
+TeX 3.14159265 (TeX Live 2016/Arch Linux)
+kpathsea version 6.2.2
+Copyright 2016 D.E. Knuth.
+There is NO warranty.  Redistribution of this software is
+covered by the terms of both the TeX copyright and
+the Lesser GNU General Public License.
+For more information about these matters, see the file
+named COPYING and the TeX source.
+Primary author of TeX: D.E. Knuth.
+```
+使用texstudio编写测试文件：
+
+新建test.tex,内容如下：
+
+```latex
+\documentclass{article}
+
+\usepackage{graphicx}
+
+\begin{document}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{favicon.jpg}
+  \caption{A boat.}
+  \label{fig:boat1}
+\end{figure}
+
+Figure \ref{fig:boat1} shows a boat.
+
+\end{document}
+```
+Build & View查看运行结果，正常结果如下：
+
+![results](http://oq782gkz3.bkt.clouddn.com/favicon.png)
 
