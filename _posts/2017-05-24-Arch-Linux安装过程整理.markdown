@@ -14,19 +14,19 @@ tag: Linux
 
 - 准备内容
 
-  1.USB
+  1. USB
  
-  2.Arch Linux ISO image
+  2. Arch Linux ISO image
 
   [Arch Linux Download Addr](https://www.archlinux.org/download/)
 
 - 创建启动盘
 
-  1.On windows: Rufus
+  1. On windows: Rufus
 
-  2.On linux: sudo dd if=/path\_to\_arch\_.iso of=/dev/sdx
+  2. On linux: ```sudo dd if=/path\_to\_arch\_.iso of=/dev/sdx```
 
->sdx代表你的U盘，可以用lsblk命令查看得到。
+> sdx代表你的U盘，可以用lsblk命令查看得到。
 
 接下来就是设置bios启动方式，UEFI+GPT，美滋滋啊
 
