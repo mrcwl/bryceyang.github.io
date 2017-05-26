@@ -14,7 +14,7 @@ tag: Linux
 
 - 准备内容
 
-  1. USB dirve
+  1. USB stick
  
   2. Arch Linux ISO image
 
@@ -24,11 +24,11 @@ tag: Linux
 
   1. On windows: Rufus
 
-  2. On linux: ```sudo dd if=/path\_to\_arch\_.iso of=/dev/sdx```
+  2. On linux: ```sudo dd if=/path_to_arch_.iso of=/dev/sdx```
 
 > sdx代表你的U盘，可以用lsblk命令查看得到。
 
-接下来就是设置bios启动方式，UEFI+GPT，美滋滋啊
+接下来就是设置bios启动方式，教程基于UEFI+GPT的引导启动方式。请自行设置。
 
 **设置USB为下一次的引导路径，然后重启之后我们就能进入Arch安装环境了**
 
@@ -44,10 +44,10 @@ tag: Linux
 
 ```
 gdisk /dev/sdx (x representing your drive)
-x # into expert mode
-z # clear the disk
-y # confirm
-y # confirm
+x          # into expert mode
+z          # clear the disk
+y          # confirm
+y          # confirm
 ```
 创建分区
 
@@ -70,7 +70,9 @@ Size in sectors: 1024MiB ->press Enter
 Hex Code: EF00 press Enter
 Enter new partition name: boot ->press Enter
 ```
-EF00千万不要弄错
+**boot分区**的Hex Code为**EF00**，千万不要弄错，有些资料会说是EF02，实测EF00才有效。
+
+arch wiki上说boot分区分配200-300mb就行了，但是为了以后的双系统等未知需求，分配1Gb。
 
 ```
 [New] Press Enter
@@ -79,10 +81,16 @@ Size in sectors: 8GiB ->press Enter
 Hex Code: 8200 ->press Enter
 Enter new partition name: swap ->press Enter
 ```
-8200千万不要弄错
+**swap分区**的Hex Code是**8200**。
 
-下面建立root和home分区代号就是默认的8300了，自己控制一下大小以及方向就行了。
+swap分区的开启与否以及大小设置一直是争论焦点。这里贴出参考：
 
+![askubuntu\_swap](https://askubuntu.com/questions/49109/i-have-16gb-ram-do-i-need-32gb-swap/49130#49130)
+![serverfault\_swap](https://serverfault.com/questions/5841/how-much-swap-space-on-a-2-4gb-system)
+
+下面建立root分区和home分区。两者Hex code都是默认的**8300**。
+如果不独立设置home分区，就可以直接把剩余空间都设置为root分区。
+如果设置独立的home分区，可以分配30G左右给root分区，剩余空间分配给home分区。
 分区全部建立完毕之后，我们就要设置分区格式了。
 
 ```shell
