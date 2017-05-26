@@ -86,6 +86,7 @@ Enter new partition name: swap ->press Enter
 swap分区的开启与否以及大小设置一直是争论焦点。这里贴出参考：
 
 [askubuntu\_swap](https://askubuntu.com/questions/49109/i-have-16gb-ram-do-i-need-32gb-swap/49130#49130)
+
 [serverfault\_swap](https://serverfault.com/questions/5841/how-much-swap-space-on-a-2-4gb-system)
 
 下面建立root分区和home分区。两者Hex code都是默认的**8300**。
