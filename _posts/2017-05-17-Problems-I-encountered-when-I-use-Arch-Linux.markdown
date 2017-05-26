@@ -10,7 +10,7 @@ tag: Linux
 
 ---
 
-### oh my zsh 安装使用
+### 1. oh my zsh 安装使用
 **首先安装Zsh**
 
 ``` shell
@@ -45,7 +45,7 @@ chsh -s /usr/bin/zsh
 
 ---
 
-### error: failed to commit transaction (conflicting files)
+### 2. error: failed to commit transaction (conflicting files)
 这个问题已经碰到了几次，原因暂未知。
 
 ``` shell
@@ -63,7 +63,7 @@ pacman -Qo /path/to/file
 
 ---
 
-### 窗口撕裂
+### 3. 窗口撕裂
 
 我不知道这个问题应不应该叫做窗口撕裂：在上下滚动内容的时候，滚动方向最下面的内容会出现重影，显得好像屏幕刷新有延迟。
 
@@ -86,11 +86,12 @@ EndSection
 
 > 默认的`AccelMethod`的值为`sna`，在我这里使用`sna`会出现滚动延迟的情况，但是使用`uxa`就没有这种现象。但是更改了这个值之后发现了一个新问题就是笔记本不合盖子屏幕自动关闭之后不能唤醒，只有切到tty之后再切回来才行。待解决。
 
+---
 
-### signature from xxx is marginal trust
+### 4. signature from xxx is marginal trust
 
 
-> example:
+**example:**
 
 > error: archlinuxcn-keyring: signature from "Jiachen Yang \<farseerfc@gmail.com />" is marginal trust
 > :: File /var/cache/pacman/pkg/archlinuxcn-keyring-20170522-1-any.pkg.tar.xz is corrupted (invalid or corrupted package (PGP signature)).
@@ -100,8 +101,6 @@ EndSection
 `sudo pacman-key --refresh-keys`
 
 代码运行结果就是新导入了很多PGP signature, 然后问题解决。
-
-**我不知道这是不是唯一的解决方法，还需要进一步完善。**
 
 **解决方法二**
 
@@ -119,7 +118,9 @@ pacman-key --populate archlinuxcn
 
 不知道这个系统时间是指哪个时间。
 
-### /opt sysmlink file conflicts 
+* * * * * 
+
+### 5. /opt sysmlink file conflicts 
 
 由于在安装Arch系统时，/home分区是独立于/root分区的，而yaourt安装的大型软件都是会安装到/opt下面，导致系统分区会被很快用光。所以我的解决方法是在/home分区下新建opt分区，然后建立软链接：
 
