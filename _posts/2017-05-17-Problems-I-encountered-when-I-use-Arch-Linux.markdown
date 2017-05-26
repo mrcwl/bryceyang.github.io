@@ -118,3 +118,26 @@ pacman-key --populate archlinuxcn
 ***还有一种说法是系统时间不正确***
 
 不知道这个系统时间是指哪个时间。
+
+### /opt sysmlink file conflicts 
+
+由于在安装Arch系统时，/home分区是独立于/root分区的，而yaourt安装的大型软件都是会安装到/opt下面，导致系统分区会被很快用光。所以我的解决方法是在/home分区下新建opt分区，然后建立软链接：
+
+`ln -s /home/opt /opt`
+
+但是这样做之后会导致在yaourt安装软件是出现`/opt already exists`的`file conflicts`错误。
+
+官方解释如下：
+
+> Directory Symlink Handling: Example time! Arch Linux has a /lib -> /usr/lib symlink. Previously, if pacman was installing a package and it found files in /lib, it would follow the symlink and install it in /usr/lib. However the filelist for that package still recorded the file in /lib. This caused heaps of difficulty in conflict resolving – primarily the need to resolve every path of all package files to look for conflicts. That was a stupid idea! So now if pacman sees a /lib directory in a package, it will detect a conflict with the symlink on the filesystem. If you were using this feature to install files elsewhere, you probably need to look into what a bind mount is! Note that this change requires us to correct the local package file list for any package installed using this mis-feature, so we bumped the database version. Upgrade using pacman-db-upgrade. Thanks to Andrew! 
+
+解决方法如下：
+
+在**/etc/fstab**里加入如下内容：
+
+```shell
+# solve the /opt sysbolink file conficts errors
+/home/opt	/opt	none	bind
+```
+**problems solved, splendid!**
+ 
