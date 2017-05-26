@@ -18,7 +18,7 @@ tag: Linux
  
   2. Arch Linux ISO image
 
-  [Arch Linux Download Addr](https://www.archlinux.org/download/)
+&nbsp&nbsp [Arch Linux Download Addr](https://www.archlinux.org/download/)
 
 - 创建启动盘
 
@@ -51,7 +51,7 @@ y          # confirm
 ```
 创建分区
 
-`cgdisk /dev/sdx`
+**分区设定如下：**
 
 sda
 
@@ -62,6 +62,11 @@ sda
 - sda3(our root partition)
 
 - sda4(our home partition)
+
+**使用cgdisk分区：**
+
+`cgdisk /dev/sdx`
+
 
 ```
 [New] Press Enter
