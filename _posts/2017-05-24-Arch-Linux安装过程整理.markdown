@@ -14,7 +14,7 @@ tag: Linux
 
 - 准备内容
 
-  1. USB
+  1. USB dirve
  
   2. Arch Linux ISO image
 
