@@ -10,7 +10,7 @@ tag: Linux
 
 ---
 
-#### oh my zsh 安装使用
+### oh my zsh 安装使用
 **首先安装Zsh**
 
 ``` shell
@@ -45,7 +45,7 @@ chsh -s /usr/bin/zsh
 
 ---
 
-#### error: failed to commit transaction (conflicting files)
+### error: failed to commit transaction (conflicting files)
 这个问题已经碰到了几次，原因暂未知。
 
 ``` shell
@@ -63,7 +63,7 @@ pacman -Qo /path/to/file
 
 ---
 
-#### 窗口撕裂
+### 窗口撕裂
 
 我不知道这个问题应不应该叫做窗口撕裂：在上下滚动内容的时候，滚动方向最下面的内容会出现重影，显得好像屏幕刷新有延迟。
 
@@ -87,7 +87,7 @@ EndSection
 > 默认的`AccelMethod`的值为`sna`，在我这里使用`sna`会出现滚动延迟的情况，但是使用`uxa`就没有这种现象。但是更改了这个值之后发现了一个新问题就是笔记本不合盖子屏幕自动关闭之后不能唤醒，只有切到tty之后再切回来才行。待解决。
 
 
-#### signature from xxx is marginal trust
+### signature from xxx is marginal trust
 
 
 > example:
