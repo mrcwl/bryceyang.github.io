@@ -86,3 +86,35 @@ EndSection
 
 > 默认的`AccelMethod`的值为`sna`，在我这里使用`sna`会出现滚动延迟的情况，但是使用`uxa`就没有这种现象。但是更改了这个值之后发现了一个新问题就是笔记本不合盖子屏幕自动关闭之后不能唤醒，只有切到tty之后再切回来才行。待解决。
 
+
+#### signature from xxx is marginal trust
+
+
+> example:
+
+> error: archlinuxcn-keyring: signature from "Jiachen Yang \<farseerfc@gmail.com />" is marginal trust
+> :: File /var/cache/pacman/pkg/archlinuxcn-keyring-20170522-1-any.pkg.tar.xz is corrupted (invalid or corrupted package (PGP signature)).
+
+**解决办法**
+
+`sudo pacman-key --refresh-keys`
+
+代码运行结果就是新导入了很多PGP signature, 然后问题解决。
+
+**我不知道这是不是唯一的解决方法，还需要进一步完善。**
+
+**解决方法二**
+
+```shell
+sudo rm -R /etc/pacman.d/gnupg/
+pacman-key --init
+pacman-key --populate archlinux
+pacman-key --populate archlinuxcn
+```
+可以看出这也是走的更新key的路数。
+
+但是出现这种问题执行`pacman -S archlinux-keyring`重装`archlinux-keyring`是没有用的。
+
+***还有一种说法是系统时间不正确***
+
+不知道这个系统时间是指哪个时间。
