@@ -44,10 +44,10 @@ tag: Linux
 
 ```
 gdisk /dev/sdx (x representing your drive)
-x
-z
-y
-y
+x # into expert mode
+z # clear the disk
+y # confirm
+y # confirm
 ```
 创建分区
 
