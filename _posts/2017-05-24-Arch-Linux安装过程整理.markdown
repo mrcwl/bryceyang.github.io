@@ -109,7 +109,8 @@ mkfs.ext4 /dev/sda4
 
 ### 安装Arch 以及配置启动
 
-- 挂载分区
+挂载分区
+
 ```shell
 mount /dev/sda3 /mnt
 mkdir /mnt/boot
@@ -117,7 +118,9 @@ mkdir /mnt/home
 mount /dev/sda1 /mnt/boot
 mount /dev/sda4 /mnt/home
 ```
+
 设置mirrorlist
+
 >学校有ipv6的学生可以用清华的源，ipv6直连，美滋滋。
 
 `nano /etc/pacman.d/mirrorlist`
