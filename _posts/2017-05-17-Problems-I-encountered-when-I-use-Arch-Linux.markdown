@@ -10,7 +10,8 @@ tag: Linux
 
 ---
 
-### 1. oh my zsh 安装使用
+**### 1. oh my zsh 安装使用**
+
 **首先安装Zsh**
 
 ``` shell
@@ -45,7 +46,7 @@ chsh -s /usr/bin/zsh
 
 ---
 
-### 2. error: failed to commit transaction (conflicting files)
+**### 2. error: failed to commit transaction (conflicting files)**
 
 **问题描述：**这个问题已经碰到了几次，原因暂未知。
 
@@ -55,7 +56,7 @@ python-markupsafe: /usr/lib/python3.6/site-packages/MarkupSafe-1.0-py3.6.egg-inf
 python-markupsafe: /usr/lib/python3.6/site-packages/MarkupSafe-1.0-py3.6.egg-info/SOURCES.txt exists in filesystem
 python-markupsafe: /usr/lib/python3.6/site-packages/MarkupSafe-1.0-py3.6.egg-info/dependency_links.txt exists in filesystem
 ```
-** 解决方法 **
+**解决方法：**
 首先，检测一下冲突文件有没有包在使用
 ```
 pacman -Qo /path/to/file
@@ -64,11 +65,11 @@ pacman -Qo /path/to/file
 
 ---
 
-### 3. 窗口撕裂
+**### 3. 窗口撕裂**
 
-**问题描述:**我不知道这个问题应不应该叫做窗口撕裂：在上下滚动内容的时候，滚动方向最下面的内容会出现重影，显得好像屏幕刷新有延迟。
+**问题描述：**我不知道这个问题应不应该叫做窗口撕裂：在上下滚动内容的时候，滚动方向最下面的内容会出现重影，显得好像屏幕刷新有延迟。
 
-**解决方法**
+**解决方法：**
 
 ```shell
 sudo vim /etc/X11/xorg.conf.d/20-intel.conf
@@ -89,14 +90,14 @@ EndSection
 
 ---
 
-### 4. signature from xxx is marginal trust
+**### 4. signature from xxx is marginal trust**
 
 **问题描述：**
 
 > error: archlinuxcn-keyring: signature from "Jiachen Yang \<farseerfc@gmail.com />" is marginal trust
 > :: File /var/cache/pacman/pkg/archlinuxcn-keyring-20170522-1-any.pkg.tar.xz is corrupted (invalid or corrupted package (PGP signature)).
 
-**解决办法**
+**解决办法：**
 
 `sudo pacman-key --refresh-keys`
 
@@ -120,7 +121,7 @@ pacman-key --populate archlinuxcn
 
 * * * * * 
 
-### 5. /opt sysmlink file conflicts 
+**### 5. /opt sysmlink file conflicts** 
 
 **问题描述：**由于在安装Arch系统时，/home分区是独立于/root分区的，而yaourt安装的大型软件都是会安装到/opt下面，导致系统分区会被很快用光。所以我的解决方法是在/home分区下新建opt分区，然后建立软链接：
 
@@ -143,7 +144,8 @@ pacman-key --populate archlinuxcn
 **problems solved, splendid!**
  
 * * * * *
-### 6. wine下TIM中文界面部分乱码
+
+**### 6. wine下TIM中文界面部分乱码**
 
 **问题描述：** 已经通过`winetricks corefonts cjkfonts`安装了字体，但是qq登录界面以及消息预览界面的中文都是方块。
 
@@ -174,7 +176,7 @@ SimSun代表windows下的simsun.ttc字体，这里提供下载：[下载simsun.t
 
 * * * * * 
 
-### 7. xfce4下开机时某些非自启应用会自动运行
+**### 7. xfce4下开机时某些非自启应用会自动运行**
 
 **问题描述：**已经关闭了`auto save sessions`，但是在登录之后某些应用仍然会自动启动，具体表现为某次关机前系统的工作状态。
 
