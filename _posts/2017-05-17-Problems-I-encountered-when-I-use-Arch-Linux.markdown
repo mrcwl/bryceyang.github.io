@@ -46,7 +46,8 @@ chsh -s /usr/bin/zsh
 ---
 
 ### 2. error: failed to commit transaction (conflicting files)
-这个问题已经碰到了几次，原因暂未知。
+
+**问题描述：**这个问题已经碰到了几次，原因暂未知。
 
 ``` shell
 error: failed to commit transaction (conflicting files)
@@ -65,7 +66,7 @@ pacman -Qo /path/to/file
 
 ### 3. 窗口撕裂
 
-我不知道这个问题应不应该叫做窗口撕裂：在上下滚动内容的时候，滚动方向最下面的内容会出现重影，显得好像屏幕刷新有延迟。
+**问题描述:**我不知道这个问题应不应该叫做窗口撕裂：在上下滚动内容的时候，滚动方向最下面的内容会出现重影，显得好像屏幕刷新有延迟。
 
 **解决方法**
 
@@ -90,8 +91,7 @@ EndSection
 
 ### 4. signature from xxx is marginal trust
 
-
-**example:**
+**问题描述：**
 
 > error: archlinuxcn-keyring: signature from "Jiachen Yang \<farseerfc@gmail.com />" is marginal trust
 > :: File /var/cache/pacman/pkg/archlinuxcn-keyring-20170522-1-any.pkg.tar.xz is corrupted (invalid or corrupted package (PGP signature)).
@@ -122,7 +122,7 @@ pacman-key --populate archlinuxcn
 
 ### 5. /opt sysmlink file conflicts 
 
-由于在安装Arch系统时，/home分区是独立于/root分区的，而yaourt安装的大型软件都是会安装到/opt下面，导致系统分区会被很快用光。所以我的解决方法是在/home分区下新建opt分区，然后建立软链接：
+**问题描述：**由于在安装Arch系统时，/home分区是独立于/root分区的，而yaourt安装的大型软件都是会安装到/opt下面，导致系统分区会被很快用光。所以我的解决方法是在/home分区下新建opt分区，然后建立软链接：
 
 `ln -s /home/opt /opt`
 
@@ -132,7 +132,7 @@ pacman-key --populate archlinuxcn
 
 > Directory Symlink Handling: Example time! Arch Linux has a /lib -> /usr/lib symlink. Previously, if pacman was installing a package and it found files in /lib, it would follow the symlink and install it in /usr/lib. However the filelist for that package still recorded the file in /lib. This caused heaps of difficulty in conflict resolving – primarily the need to resolve every path of all package files to look for conflicts. That was a stupid idea! So now if pacman sees a /lib directory in a package, it will detect a conflict with the symlink on the filesystem. If you were using this feature to install files elsewhere, you probably need to look into what a bind mount is! Note that this change requires us to correct the local package file list for any package installed using this mis-feature, so we bumped the database version. Upgrade using pacman-db-upgrade. Thanks to Andrew! 
 
-解决方法如下：
+**解决方法：**
 
 在**/etc/fstab**里加入如下内容：
 
@@ -142,3 +142,45 @@ pacman-key --populate archlinuxcn
 ```
 **problems solved, splendid!**
  
+* * * * *
+### 6. wine下TIM中文界面部分乱码
+
+**问题描述：** 已经通过`winetricks corefonts cjkfonts`安装了字体，但是qq登录界面以及消息预览界面的中文都是方块。
+
+**解决方法：**
+
+```
+vim .wine/system.reg
+搜索： LogPixels
+找到的行应该是：[System\\CurrentControlSet\\Hardware Profiles\\Current\\Software\\Fonts]
+将其中的：
+“LogPixels”=dword:00000060
+
+改为：
+“LogPixels”=dword:00000070
+
+搜索： FontSubstitutes
+找到的行应该是：[Software\\Microsoft\\Windows NT\\CurrentVersion\\FontSubstitutes]
+将其中的：
+“MS Shell Dlg”=”Tahoma”
+“MS Shell Dlg 2″=”Tahoma”
+
+改为：
+“MS Shell Dlg”=”SimSun”
+“MS Shell Dlg 2″=”SimSun”
+```
+
+SimSun代表windows下的simsun.ttc字体，这里提供下载：[下载simsun.ttc](https://www.dropbox.com/s/78jt6smdorzqzpv/simsun.ttc?dl=0)
+
+* * * * * 
+
+### 7. xfce4下开机时某些非自启应用会自动运行
+
+**问题描述：**已经关闭了`auto save sessions`，但是在登录之后某些应用仍然会自动启动，具体表现为某次关机前系统的工作状态。
+
+**解决方法：**
+
+```
+rm -r .cache/sessions/*
+```
+**All clear!!!**
