@@ -6,7 +6,7 @@ category: Linux
 tag: Linux
 ---
 
-### Ubuntu
+### **Ubuntu**
 [Ubuntu清华源更换网址](https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/)
 **更换步骤**
 
@@ -20,7 +20,7 @@ tag: Linux
 
 ---
 
-### Arch Linux
+### **Arch Linux**
 编辑­`/etc/pacman.d/mirrorlist`,在文件最顶端添加：
 
 `Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch`
