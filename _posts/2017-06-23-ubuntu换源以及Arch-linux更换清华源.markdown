@@ -6,12 +6,7 @@ category: Linux
 tag: Linux
 ---
 
-<<<<<<< HEAD
-### Ubuntu
-
-=======
 ### **Ubuntu**
->>>>>>> origin/master
 [Ubuntu清华源更换网址](https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/)
 
 这个地址里同样有其他Linux发行版的源使用帮助信息。
