@@ -6,8 +6,12 @@ category: Linux
 tag: Linux
 ---
 
+<<<<<<< HEAD
 ### Ubuntu
 
+=======
+### **Ubuntu**
+>>>>>>> origin/master
 [Ubuntu清华源更换网址](https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/)
 
 这个地址里同样有其他Linux发行版的源使用帮助信息。
@@ -27,7 +31,7 @@ tag: Linux
 
 ---
 
-### Arch Linux
+### **Arch Linux**
 编辑­`/etc/pacman.d/mirrorlist`,在文件最顶端添加：
 
 `Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch`
