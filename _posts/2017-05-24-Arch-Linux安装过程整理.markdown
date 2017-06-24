@@ -10,7 +10,7 @@ tag: Linux
 
 ### 准备以及分区
 
-**准备**
+**1.准备**
 
 - 准备内容
 
@@ -18,7 +18,7 @@ tag: Linux
  
   2. Arch Linux ISO image
 
-&nbsp&nbsp [Arch Linux Download Addr](https://www.archlinux.org/download/)
+   [Arch Linux Download Addr](https://www.archlinux.org/download/)
 
 - 创建启动盘
 
@@ -38,7 +38,7 @@ tag: Linux
 
 如果有输出，就说明已经开启。
 
-**分区**
+**2.分区**
 
 `lsblk`
 
@@ -107,7 +107,7 @@ mkfs.ext4 /dev/sda3
 mkfs.ext4 /dev/sda4
 ```
 
-### 安装Arch 以及配置启动
+### 3.安装Arch 以及配置启动
 
 挂载分区
 
@@ -287,7 +287,7 @@ exit
 umount -R /mnt
 reboot
 ```
-### 安装xfce4桌面环境
+### 5.安装xfce4桌面环境
 
 ```shell
 sudo pacman -S mesa
@@ -300,7 +300,7 @@ reboot
 ```
 安装完成，可以使用了。美滋滋。
 
-### 安装Tex Live
+### 6.安装Tex Live
 
 ```shell
 yaourt -S texlive-most
