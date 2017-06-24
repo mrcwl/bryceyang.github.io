@@ -7,16 +7,23 @@ tag: Linux
 ---
 
 ### Ubuntu
+
 [Ubuntu清华源更换网址](https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/)
+
+这个地址里同样有其他Linux发行版的源使用帮助信息。
 **更换步骤**
 
 1. 在上述网址选择ubuntu版本，生成对应的源地址；
 
-2. 备份`sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup`
+2. 备份原始文件
 
-3. `sudo vim /etc/apt/sources.list`,将`sources.list`中内容注释或者删除掉，然后将第一步中生成的源地址粘贴进去；
+`sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup`
 
-4. 更新软件包缓存`sudo apt update`
+3. 编辑源文件
+
+`sudo vim /etc/apt/sources.list`,将`sources.list`中内容注释或者删除掉，然后将第一步中生成的源地址粘贴进去；
+
+4. 然后更新软件包缓存`sudo apt update`
 
 ---
 
