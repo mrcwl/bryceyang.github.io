@@ -19,7 +19,7 @@ https://{username}:{password}@github.com
 ```
 2.添加git config内容
 
-`git config --glocal credential.helper store`
+`git config --global credential.helper store`
 
 执行此命令后，用户主目录下的.gitconfig文件会多了一项：`[credential]`
 
