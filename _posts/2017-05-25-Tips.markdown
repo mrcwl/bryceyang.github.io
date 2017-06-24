@@ -31,6 +31,24 @@ https://{username}:{password}@github.com
 
 ---
 
+### git add 使用tab键自动补全的中文文件名乱码
+
+文件名乱码如下所示：
+
+![乱码](http://oq782gkz3.bkt.clouddn.com/Selection_003.png)
+
+**解决方法为：**
+
+`git config --global core.quotepath false`
+
+效果如下：
+
+![效果](http://oq782gkz3.bkt.clouddn.com/Selection_004.png)
+
+可以看出中文已经正确显示了。
+
+---
+
 ### jupyter notebook 创建密码
 
 **产生jupyter notebook的配置文件：**
