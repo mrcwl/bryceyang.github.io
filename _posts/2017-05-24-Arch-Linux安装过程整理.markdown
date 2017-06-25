@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Arch linux安装过程整理
-data: 2017-05-24 20:32:00.000000000 +9:00
+date: 2017-05-24 20:32:00.000000000 +9:00
 category: Linux
 tag: Linux
 ---
