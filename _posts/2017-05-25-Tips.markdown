@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tips 
+title: Tips about git and jupyter 
 data: 2017-05-25 00:41:00.000000000 +9:00
 category: Tips
 tag: Tips
