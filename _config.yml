@@ -54,5 +54,4 @@ social:
 
 markdown: rdiscount
 rdiscount:
-	extensions:
-		-generate_toc
+	extensions: -generate_toc
