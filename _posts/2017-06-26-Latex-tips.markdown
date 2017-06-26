@@ -11,3 +11,8 @@ tag: Latex Tips
 \min\limits_{a}
 \min\nolimits{a}
 ```
+对应的显示效果如下：
+
+![\min\limits\_{a}](http://oq782gkz3.bkt.clouddn.com/4.png)
+![\min\nolimits\_{a}](http://oq782gkz3.bkt.clouddn.com/5.png)
+
