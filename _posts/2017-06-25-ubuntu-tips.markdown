@@ -8,6 +8,8 @@ tag: Linux Tips
 
 ### **1. 更换pip源为阿里云的镜像源**
 
+[官方帮助教程](http://mirrors.aliyun.com/help/pypi)
+
 编辑pip配置文件:
 
 `vim ~/.pip/pip.conf`
@@ -16,8 +18,10 @@ tag: Linux Tips
 
 ```
 [global]
+index-url = http://mirrors.aliyun.com/pypi/simple/
+
+[install]
 trusted-host = mirrors.aliyun.com
-index-url = https://mirrors.aliyun.con/pypi/simple
 ```
 
 **如果发现没有对应文件夹以及配置文件，请直接自行创建。**
