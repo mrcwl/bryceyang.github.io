@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Tips about git and jupyter</title>
+  <meta name="description" content="git push 免密码">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tips about git and jupyter">
+  <meta name="twitter:description" content="git push 免密码">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Tips about git and jupyter">
+  <meta property="og:description" content="git push 免密码">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2017/05/Tips/">
+  <link rel="alternate" type="application/rss+xml" title="V" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 V 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="V logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for V" class="blog-button">V</a></h1>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">V is my learning record.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        <p class="panel-cover__description"><a href="https://github.com/bryceyang" target="_blank">Welcome</a></p>
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="Visit blog" class="blog-button">Blog</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+  <!-- Weibo -->
+  <li class="navigation__item">
+    <a href="http://weibo.com/poplar40" title="@poplar40 的微博" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+    <a href="https://github.com/bryceyang" title="@bryceyang 的 Github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/poplar50" title="@poplar50" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Google Plus -->
+  <li class="navigation__item">
+    <a href="https://plus.google.com/108486653827211515463" rel="author" title="Google+" target="_blank">
+      <i class='social fa fa-google-plus-square'></i>
+      <span class="label">Google Plus</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:kaieryang@hotmail.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+  </ul>
+</nav>
+
+</div>
+<span id="busuanzi_container_site_uv">
+  您是第<span id="busuanzi_value_site_uv"></span>位访客
+</span>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-disabled"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-05-24 23:41:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-05-24</time> &#8226; <span class="post-meta__tags tags">Tips</span><span id="busuanzi_container_page_pv">  本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+    </div>
+    <h1 class="post-title">Tips about git and jupyter</h1>
+  </header>
+
+  <section class="post">
+    <h3 id="git-push-免密码">git push 免密码</h3>
+
+<p>1.使用文件创建用户名和密码</p>
+
+<p>文件创建在用户主目录下：</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>touch .git-credentials
+vim .git-credentials
+https://<span class="o">{</span>username<span class="o">}</span>:<span class="o">{</span>password<span class="o">}</span>@github.com
+</code></pre>
+</div>
+<p><strong>记得在真正输入的时候是没有大括号的。</strong></p>
+
+<p>2.添加git config内容</p>
+
+<p><code class="highlighter-rouge">git config --global credential.helper store</code></p>
+
+<p>执行此命令后，用户主目录下的.gitconfig文件会多了一项：<code class="highlighter-rouge">[credential]</code></p>
+
+<p><code class="highlighter-rouge">helper = store</code></p>
+
+<p>重新git push就不需要用户名密码了。</p>
+
+<hr />
+
+<h3 id="git-add-使用tab键自动补全的中文文件名乱码">git add 使用tab键自动补全的中文文件名乱码</h3>
+
+<p>文件名乱码如下所示：</p>
+
+<p><img src="http://oq782gkz3.bkt.clouddn.com/Selection_003.png" alt="乱码" /></p>
+
+<p><strong>解决方法为：</strong></p>
+
+<p><code class="highlighter-rouge">git config --global core.quotepath false</code></p>
+
+<p>效果如下：</p>
+
+<p><img src="http://oq782gkz3.bkt.clouddn.com/Selection_004.png" alt="效果" /></p>
+
+<p>可以看出中文已经正确显示了。</p>
+
+<hr />
+
+<h3 id="jupyter-notebook-创建密码">jupyter notebook 创建密码</h3>
+
+<p><strong>产生jupyter notebook的配置文件：</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>jupyter notebook --generate-config
+</code></pre>
+</div>
+<p><strong>生成的配置文件位置为：~/.jupyter/jupyter_notebook_config.py</strong></p>
+
+<p><strong>打开jupyter，新建一个notebook，创建密码以及生成密码的sha1密钥，所需代码如下：</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>from notebook.auth import passwd
+passwd()
+</code></pre>
+</div>
+<p>输入一遍你想设置的密码，然后再输入一遍确认，记录下生成的sha1密钥值。形式如：‘sha1:xxxxxxx’</p>
+
+<p>然后将这段值按如下格式粘贴到配置文件中对应的<code class="highlighter-rouge">c.NotebookApp.password = u'sha1:xxxx'</code>位置上，如果你不想寻找文件中的这个位置，你也可以在文件末尾新建一个。</p>
+
+<p><strong>重启jupyter，密码生效。</strong></p>
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">最近的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/06/ubuntu%E6%8D%A2%E6%BA%90%E4%BB%A5%E5%8F%8AArch-linux%E6%9B%B4%E6%8D%A2%E6%B8%85%E5%8D%8E%E6%BA%90/" title="link to Ubuntu以及Arch Linux更换清华源">Ubuntu以及Arch Linux更换清华源</a></h2>
+       <p class="excerpt">UbuntuUbuntu清华源更换网址这个地址里同样有其他Linux发行版的源使用帮助信息。更换步骤1.在上述网址选择ubuntu版本，生成对应的源地址；2.备份原始文件sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup3.编辑源文件sudo vim /etc/apt/sources.list将sources.list中内容注释或者删除掉，然后将第一步中生成的源地址粘贴进去；4.然后更新软件包缓存sudo apt updat...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-06-23 15:16:27 +0800" class="post-list__meta--date date">2017-06-23</time> &#8226; <span class="post-list__meta--tags tags">Linux</span><a class="btn-border-small" href=/2017/06/ubuntu%E6%8D%A2%E6%BA%90%E4%BB%A5%E5%8F%8AArch-linux%E6%9B%B4%E6%8D%A2%E6%B8%85%E5%8D%8E%E6%BA%90/>继续阅读</a></div>
+   </div>
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2017/05/Arch-Linux%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E6%95%B4%E7%90%86/" title="link to Arch linux安装过程整理">Arch linux安装过程整理</a></h2>
+       <p class="excerpt">整理一下这个教程便于以后可以无脑重装Arch Linux，美滋滋啊。准备以及分区1.准备      准备内容                  USB stick                    Arch Linux ISO image              Arch Linux Download Addr        创建启动盘                  On windows: Rufus                    On linux: sudo dd if...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2017-05-24 19:32:00 +0800" class="post-list__meta--date date">2017-05-24</time> &#8226; <span class="post-list__meta--tags tags">Linux</span><a class="btn-border-small" href=/2017/05/Arch-Linux%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E6%95%B4%E7%90%86/>继续阅读</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2017/05/Tips/";
+        this.page.identifier = "/2017/05/Tips/";
+    };
+
+    var disqus_shortname = 'bryceyang';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+        <span class="footer__copyright">Powered by Jekyll&Github - &copy; 2017 Bryce Yang</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+
+    
+  </body>
+
+</html>
