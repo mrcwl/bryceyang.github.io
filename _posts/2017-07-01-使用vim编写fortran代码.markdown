@@ -41,3 +41,5 @@ zO：展开所有代码
 最后效果图：
 
 ![效果图](http://oq782gkz3.bkt.clouddn.com/vim_fortran.png)
+
+这里vim的配色主题为molokai。
