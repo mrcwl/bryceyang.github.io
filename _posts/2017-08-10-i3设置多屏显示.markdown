@@ -10,7 +10,7 @@ tag: Linux
 
 **i3下使用多显示器是挺方便的，当然windows下即插即用更讨喜。**
 
-**先给出最终成果图：**
+**先给出最终成果图: **
 
 ![clean workspace screenshot](http://oq782gkz3.bkt.clouddn.com/IV_001.bmp)
 
