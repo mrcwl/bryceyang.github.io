@@ -24,7 +24,7 @@ sass:
 # Site Data
   url: "https://bryceyang.github.io" 
 # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: 
+baseurl: /
 title: V
 description: "V is my learning record."
 keywords: 'jekyll,theme,gem-based,blog'
