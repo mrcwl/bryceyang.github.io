@@ -1,15 +1,9 @@
+# **Thanks for [the creator](http://yizeng.me) of this theme!** 
+
 # Simple Texture Jekyll Theme
 
-![Gem Version](https://img.shields.io/gem/v/jekyll-theme-simple-texture.svg)
+**Preview：** You can visit [my blog](https://bryceyang.github.io).
 
-Simple Texture is a gem-based responsive simple texture styled Jekyll theme for [Jekyll][Jekyll] 3.3 or above,
-which can also be forked as a boilerplate for older versions of Jekyll.
-
-## Demo
-
-- Starter-kit demo:
-<https://yizeng.github.io/jekyll-theme-simple-texture/>
-- My own personal blog: <http://yizeng.me/blog>
 
 ![Screenshot - Home](assets/images/screenshots/home.png)
 
@@ -90,9 +84,6 @@ i.e. `jekyllapp` in this example.
 
 8. Hack away at <http://localhost:4000>!
 
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at <https://github.com/yizeng/jekyll-theme-simple-texture>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## Credits
 
