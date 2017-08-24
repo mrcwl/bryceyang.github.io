@@ -1,15 +1,9 @@
+# **Thanks for [the creator](http://yizeng.me) of this theme!** 
+
 # Simple Texture Jekyll Theme
 
-![Gem Version](https://img.shields.io/gem/v/jekyll-theme-simple-texture.svg)
+**Preview：** You can visit [my blog](https://bryceyang.github.io).
 
-Simple Texture is a gem-based responsive simple texture styled Jekyll theme for [Jekyll][Jekyll] 3.3 or above,
-which can also be forked as a boilerplate for older versions of Jekyll.
-
-## Demo
-
-- Starter-kit demo:
-<https://yizeng.github.io/jekyll-theme-simple-texture/>
-- My own personal blog: <http://yizeng.me/blog>
 
 ![Screenshot - Home](assets/images/screenshots/home.png)
 
@@ -90,9 +84,6 @@ i.e. `jekyllapp` in this example.
 
 8. Hack away at <http://localhost:4000>!
 
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at <https://github.com/yizeng/jekyll-theme-simple-texture>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## Credits
 
@@ -129,27 +120,6 @@ Bug reports and pull requests are welcome on GitHub at <https://github.com/yizen
 The theme is available as open source under the terms of the
 [MIT License](https://github.com/yizeng/jekyll-theme-simple-texture/blob/master/LICENSE).
 
-    MIT License
-
-    Copyright (c) 2017 Yi Zeng
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.
 
 [Jekyll]: http://jekyllrb.com/
 [Bunlder]: http://bundler.io/
