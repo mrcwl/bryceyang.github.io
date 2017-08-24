@@ -24,7 +24,7 @@
 
         $('.comments .show-hidden').on('click', function () {
             $.ajaxSetup({cache: true});
-            $.getScript('http://' + disqusShortname + '.disqus.com/embed.js');
+            $.getScript('https://' + disqusShortname + '.disqus.com/embed.js');
             $.ajaxSetup({cache: false});
             $(this).remove();
         });
