@@ -59,7 +59,7 @@ blog:
 
 disqus:
   shortname: bryceyang
-  public_key: 4QQ8Ezq8McoBPPaiG8JTiebQXyveCnj1DhwqVOuJmVhGA16HxHVEUXIJUDbs56xD
+  public_key: M1l4mNuPXdbLDtEyyCiWh6LN7HApjJEKtAtLStTeow2EGcPpw5dMpJMKe0sstvDO
 google_analytics: 'UA-100095499-1'
 addthis_public_id: # AddThis sharing plugin. See http://www.addthis.com/
 
