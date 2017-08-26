@@ -2,8 +2,10 @@
 layout: post
 title: "Problems I encountered when I use Arch Linux"
 description: "A summary of nomal Arch linux user's confuseing"
-category: Linux
-tag: Linux 
+categories: [Linux]
+tags: [Linux]
+redirect_from:
+  - /2017/05/17/
 ---
 
 > 使用了Arch快半年了，这个文章实在是写晚了。。

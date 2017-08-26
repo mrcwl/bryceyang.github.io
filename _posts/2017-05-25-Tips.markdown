@@ -1,10 +1,13 @@
 ---
 layout: post
-title: Tips about git and jupyter 
-date: 2017-05-25 00:41:00.000000000 +9:00
-category: Tips
-tag: Tips
+title: "Tips about git and jupyter"
+categories: [tips]
+tags: [tips]
+redirect_from:
+  - /2017/05/25/
 ---
+* Kramdown table of content
+{:toc .toc}
 
 ### git push 免密码
 

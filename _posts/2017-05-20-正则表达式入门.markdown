@@ -5,7 +5,7 @@ description: "正则表达式速记手册"
 categories: [Linux]
 tags: [Linux]
 redirect_from:
-  - /2017/05/17
+  - /2017/05/17/
 ---
 
 ---
