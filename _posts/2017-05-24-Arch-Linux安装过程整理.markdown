@@ -1,12 +1,15 @@
 ---
 layout: post
 title: Arch linux安装过程整理
-date: 2017-05-24 20:32:00.000000000 +9:00
-category: Linux
-tag: Linux
+categories: [Linux]
+tags: [Linux]
+redirect_from:
+  - /2017/05/24/
 ---
+* Kramdown table of contents
+{:toc .toc}
 
-**整理一下这个教程便于以后可以无脑重装Arch Linux，美滋滋啊。**
+> **整理一下这个教程便于以后可以无脑重装Arch Linux，美滋滋啊。**
 
 ### 准备以及分区
 

@@ -1,9 +1,11 @@
 ---
 layout: post
-title: Ubuntu tips
+title: "Ubuntu tips"
 date: 2017-06-25 16:50:00
-catagory: Linux tips
-tag: Linux Tips
+catagories: [Linux, tips]
+tags: [Linux, Tips]
+redirect_from:
+  - /2017/06/25/
 ---
 
 ### **1. 更换pip源为阿里云的镜像源**

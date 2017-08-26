@@ -1,9 +1,11 @@
 ---
 layout: post
-title: Ubuntu常用软件
-date: 2017-06-23 16:16:27.000000000 +09:00
-category: Linux
-tag: Linux
+title: "Ubuntu常用软件"
+description: "常用软件收集"
+categories: [Linux]
+tags: [Linux]
+redirect_from:
+  - /2017/06/23/
 ---
 
 习惯了Arch的yaourt之后再使用ubuntu ppa就有一种就怕货比货的感觉。

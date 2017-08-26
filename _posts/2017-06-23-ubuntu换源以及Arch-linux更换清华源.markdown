@@ -1,9 +1,12 @@
 ---
 layout: post
-title: Ubuntu以及Arch Linux更换清华源
-date: 2017-06-23 16:16:27.000000000 +09:00
-category: Linux
-tag: Linux
+title: "Ubuntu以及Arch Linux更换清华源"
+description: "换源速记"
+categories: [Linux]
+tags: [Linux]
+redirect_from:
+  - /2017/06/23/
+
 ---
 
 ### **Ubuntu**

@@ -1,8 +1,11 @@
 ---
 layout: post
-title: 使用vim编写fortran代码的一些相关设置
-date: 2017-07-01 0:58:00.000000000 +9:00
-tag: Tips
+title: "使用vim编写fortran代码的一些相关设置"
+categories: [tips]
+tags: [tips]
+redirect_from:
+  - /2017/07/01/
+
 ---
 
 > 最近开始干活了，实验室主流语言是fortran，一种很褒贬不一的语言。由于是Arch linux用户，所以需要对linux编写编译fortran代码做一些准备工作。

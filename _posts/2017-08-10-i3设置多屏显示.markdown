@@ -1,9 +1,11 @@
 ---
 layout: post
-title: i3设置多屏显示
-date: 2017-08-10 18:43:24.000000000 +09:00
-category: Linux
-tag: Linux
+title: "i3设置多屏显示"
+description: "i3使用tips集锦"
+categories: [Linux]
+tags: [Linux, tips]
+redirect_from:
+  - /2017/05/17
 ---
 
 ### **最终果然还是奔向了平铺式管理器。只能说相见恨晚啊。**
