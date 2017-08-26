@@ -1,19 +1,20 @@
 ---
 layout: post
-title: Arch linux安装过程整理
+title: Arch linux安装以及后续配置过程整理
 categories: [Linux]
 tags: [Linux]
 redirect_from:
   - /2017/05/24/
 ---
-* Kramdown table of contents
+
+*  Kramdown table of contents
 {:toc .toc}
 
 > **整理一下这个教程便于以后可以无脑重装Arch Linux，美滋滋啊。**
 
-### 准备以及分区
+## 准备以及分区
 
-**1.准备**
+### 1.准备
 
 - 准备内容
 
@@ -27,7 +28,7 @@ redirect_from:
 
   1. On windows: Rufus
 
-  2. On linux: ```sudo dd if=/path_to_arch_.iso of=/dev/sdx```
+  2. On linux: `sudo dd if=/path_to_arch_.iso of=/dev/sdx`
 
 > sdx代表你的U盘，可以用lsblk命令查看得到。
 
@@ -41,7 +42,7 @@ redirect_from:
 
 如果有输出，就说明已经开启。
 
-**2.分区**
+### 2.分区
 
 `lsblk`
 
@@ -110,9 +111,9 @@ mkfs.ext4 /dev/sda3
 mkfs.ext4 /dev/sda4
 ```
 
-### 3.安装Arch 以及配置启动
+## 安装Arch 以及配置启动
 
-挂载分区
+### 挂载分区
 
 ```shell
 mount /dev/sda3 /mnt
@@ -122,25 +123,25 @@ mount /dev/sda1 /mnt/boot
 mount /dev/sda4 /mnt/home
 ```
 
-设置mirrorlist
+### 设置mirrorlist
 
->学校有ipv6的学生可以用清华的源，ipv6直连，美滋滋。
+> 学校有ipv6的学生可以用清华的源，ipv6直连，美滋滋。
 
 `nano /etc/pacman.d/mirrorlist`
 
-然后在最前面加上
+在最前面加上
 
 ```
 # Tsinghua
 Server = http://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 ```
-然后安装系统
+### 安装系统
 
 ```
 pacstrap -i /mnt base base-devel
 ```
 
-然后创建fstab文件到新安装系统：
+将分区结构写入新系统：
 
 ```
 genfstab -U -p /mnt >> /mnt/etc/fstab
@@ -152,7 +153,11 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 
 `arch-chroot /mnt`
 
-接下来设置语言，linux下界面语言还是用英文吧。
+### 配置系统
+
+#### 设置语言
+
+个人喜欢用英文，因为跟整体linux环境比较统一。
 
 `nano /etc/locale.gen`
 
@@ -169,7 +174,7 @@ echo LANG=en_US.UTF-8 > /etc/locale.conf
 export LANG=en_US.UTF-8
 ```
 
-设置时区：
+#### 设置时区：
 
 `ln -s /usr/share/zoneinfo/Asia/Shanghai > /etc/localtime`
 
@@ -179,11 +184,13 @@ export LANG=en_US.UTF-8
 
 `hwclock --systohc --utc`
 
-设置主机名：
+#### 设置主机名：
 
 `echo hostname > /etc/hostname`
 
-然后编辑`pacman.conf`取消multilib前面的注释：
+#### 对`pacman.conf`的细化修改
+
+编辑`pacman.conf`取消multilib前面的注释：
 
 这个是为了在64位机器上运行32位程序
 
@@ -212,6 +219,8 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 
 这个时候就可以保存`pacman.conf`文件了。
 
+#### 账户相关
+
 设置root账户的密码：
 
 `passwd`
@@ -224,7 +233,7 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 
 `passwd yourusername`
 
-然后是设置sudoers：
+设置sudoers：
 
 `EDITOR=nano visudo`
 
@@ -232,42 +241,43 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 
 `%wheel ALL=(ALL) ALL`
 
-然后让使用sudo命令的用户必须输入root密码：
+设置使用sudo命令的用户必须输入root密码：
 
 `Defaults rootpw`
 
-然后就可以保存文件了。
+Done!
+
 
 安装补全命令：
 
 `pacman -S bash-completion`
 
-- 安装引导
+### 安装引导
 
 确保EFI变量被挂载
 
 `mount -t efivarfs efivarfs /sys/firmware/efi/efivars`
 
-使用Gummiboot作为我们的启动管理，这个已经整合到了bootctl/system-boot里，所以安装方式为：
+使用`Gummiboot`作为启动管理，`Gummiboot`已经整合到了`bootctl/system-boot`里，所以安装方式为：
 
 `bootctl install`
 
-下面，我需要把/root分区的PARTUUID加入到启动设置里：
+下面，把`/root`分区的`PARTUUID`加入到启动设置里：
 
 `blkid -s PARTUUID -o value /dev/sdxY`
 
-x代表设备代号，本次为a，Y是/root partition的排号，本次为3.
+`x`代表设备代号，本次为`a`，`Y`是`/root partition`的排号，本次为3.
 
-然后添加gummiboot manager配置文件：
+然后添加`gummiboot manager`配置文件：
 
-```shell
+~~~ shell
 nano /boot/loader/entries/arch.conf
 # 下面是内容：
 title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options root=PARTUUID=上个命令得到的 rw
-```
+~~~
 
 保存并退出
 
@@ -290,7 +300,7 @@ exit
 umount -R /mnt
 reboot
 ```
-### 5.安装xfce4桌面环境
+## 安装xfce4桌面环境
 
 ```shell
 sudo pacman -S mesa
@@ -303,16 +313,16 @@ reboot
 ```
 安装完成，可以使用了。美滋滋。
 
-### 6.安装Tex Live
+## 安装Tex Live
 
-```shell
+~~~ shell
 yaourt -S texlive-most
 yaourt -S texlive-langchinese
 yaourt -S texstudio
-```
+~~~
 安装完成之后使用`tex --version`测试：
 
-```
+~~~
 -<%>- tex --version
 TeX 3.14159265 (TeX Live 2016/Arch Linux)
 kpathsea version 6.2.2
@@ -323,7 +333,8 @@ the Lesser GNU General Public License.
 For more information about these matters, see the file
 named COPYING and the TeX source.
 Primary author of TeX: D.E. Knuth.
-```
+~~~
+
 使用texstudio编写测试文件：
 
 新建test.tex,内容如下：
