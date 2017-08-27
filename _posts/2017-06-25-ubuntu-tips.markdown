@@ -3,7 +3,7 @@ layout: post
 title: "Ubuntu tips"
 date: 2017-06-25 16:50:00
 catagories: [Linux, tips]
-tags: [Linux, Tips]
+tags: [Linux, tips]
 redirect_from:
   - /2017/06/25/
 ---
