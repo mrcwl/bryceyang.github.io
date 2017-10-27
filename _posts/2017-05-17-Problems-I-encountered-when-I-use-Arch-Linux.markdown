@@ -15,43 +15,7 @@ redirect_from:
 
 ---
 
-# install oh-my-zsh
-
-**首先安装Zsh**
-
-``` shell
-sudo pacman -S zsh
-```
-
-**安装oh my zsh**
-
-```
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-```
-
-**切换shell从bash到zsh**
-
-首先查看可用shell列表：
-
-``` shell
-➜  ~  cat /etc/shells
-# /etc/shells
-/bin/sh
-/bin/bash
-# End of file
-/bin/zsh
-/usr/bin/zsh
-```
-
-切换到zsh
-
-``` shell
-chsh -s /usr/bin/zsh
-```
-
----
-
-# error: failed to commit transaction (conflicting files)**
+# error: failed to commit transaction (conflicting files)
 
 **问题描述：**这个问题已经碰到了几次，原因暂未知。
 
