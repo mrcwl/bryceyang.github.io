@@ -7,6 +7,9 @@ tags: [Linux]
 redirect_from:
   - /2017/06/23/
 ---
+* Kramdown table of contents
+{:toc .toc}
+---
 
 习惯了Arch的yaourt之后再使用ubuntu ppa就有一种就怕货比货的感觉。
 
@@ -14,7 +17,7 @@ redirect_from:
 
 ---
 
-**1.Albert**
+### Albert
 
 这款软件是必装的了，一个很好用的Launcher。官方介绍如下：
 
@@ -28,7 +31,7 @@ sudo apt-get update
 sudo apt-get install albert
 ```
 
-**2.chrome**
+### chrome
 
 1.将下载源添加到系统源：
 

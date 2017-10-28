@@ -8,6 +8,10 @@ redirect_from:
   - /2017/06/25/
 ---
 
+* Kramdown table of contents
+{:toc .toc}
+---
+
 ### **1. 更换pip源为阿里云的镜像源**
 
 [官方帮助教程](http://mirrors.aliyun.com/help/pypi)
