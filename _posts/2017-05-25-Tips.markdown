@@ -10,7 +10,9 @@ redirect_from:
 {:toc .toc}
 ---
 
-### git push 免密码
+## git push 免密码
+
+### 通用情况
 
 1.使用文件创建用户名和密码
 
@@ -33,9 +35,27 @@ https://{username}:{password}@github.com
 
 重新git push就不需要用户名密码了。
 
+### 使用ssh协议
+
+首先生成密钥对：
+
+```
+ssh-keygen -t rsa -C "youremail"
+```
+接下来按照提示操作，默认可以一路往下。
+
+然后将生成的位于`~/.ssh/`的`id_rsa.pub`的内容复制到你github setting里的ssh key中。
+
+复制之后，如果你还没有克隆你的仓库，那你直接使用ssh协议用法：`git@github.com:yourusername/yourrepositoryname`克隆就行了。
+
+如果已经使用https协议克隆了，那么按照如下方法更改协议：
+`git remote set-url origin git@github.com:yourusername/yourrepositoryname.git`
+ 
+Done!
+
 ---
 
-### git add 使用tab键自动补全的中文文件名乱码
+## git add 使用tab键自动补全的中文文件名乱码
 
 文件名乱码如下所示：
 
@@ -53,7 +73,7 @@ https://{username}:{password}@github.com
 
 ---
 
-### jupyter notebook 创建密码
+## jupyter notebook 创建密码
 
 **产生jupyter notebook的配置文件：**
 
