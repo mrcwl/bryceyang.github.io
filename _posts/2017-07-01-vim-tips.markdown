@@ -16,16 +16,12 @@ redirect_from:
 
 - [Vundle](https://github.com/VundleVim/Vundle.vim)
 
-- [powerline](https://github.com/powerline/powerline)
+- [powerline font](https://github.com/powerline/fonts)
 
 **vim配置:**
 
 ```vim
 "-----------------vim基本设置--------------------------"
-"powerline设置"
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
 "关闭vi的一致性模式 避免以前版本的一些Bug和局限
 set nocompatible
 "配置backspace键工作方式
@@ -122,19 +118,25 @@ filetype plugin indent on
 
 :map <C-b> :NERDTree<CR>
 
+
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols={}
+endif
+
 let g:NERDTreeDirArrowExpandable = '>'
 let g:NERDTreeDirArrowCollapsible = 'v'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_theme='molokai'
+let g:airline_theme='luna'
 
 set background=light
 colorscheme molokai
 ```
 
-**最终效果:**
+**最终效果**
 
-![vim screenshot](http://oq782gkz3.bkt.clouddn.com/vim.png)
+![vim screenshot](http://oq782gkz3.bkt.clouddn.com/Screenshot%20from%202017-11-17%2015-25-45.png)
 
 ---
 
