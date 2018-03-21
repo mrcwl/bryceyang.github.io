@@ -26,13 +26,28 @@ Inspired By Solarized Dark ColorScheme
 
 	
 	<div id="top_bar">
-		<a id="frontpage", href="https://www.youtube.com">youtube</a>
-		<a id="leetcode", href="https://leetcode.com/problemset/all/">leetcode</a>
-		<a id="byr", href="https://bbs.byr.cn/">Byr</a>
-		<a id="zhihu", href="https://www.zhihu.com">Zhihu</a>
-		<a id="archlinux", href="https://www.reddit.com/r/archlinux">r/archlinux</a>
-		<a id="wiki", href="https://wikipedia.com">wikipedia</a>
-		<a id="rice", href="https://www.reddit.com/r/unixporn">r/unixporn</a>
+		<div class="box">
+			<a id="frontpage", href="https://www.youtube.com">youtube</a>
+		</div>
+		<div class="box">
+			<a id="leetcode", href="https://leetcode.com/problemset/all/">leetcode</a>
+		</div>
+		<div class="box">
+			<a id="byr", href="https://bbs.byr.cn/">Byr</a>
+		</div>
+		<div class="box">
+			<a id="zhihu", href="https://www.zhihu.com">Zhihu</a>
+		</div>
+		<div class="box">
+			<a id="archlinux", href="https://www.reddit.com/r/archlinux">r/archlinux</a>
+		</div>
+		<div class="box">
+			<a id="wiki", href="https://wikipedia.com">wikipedia</a>
+		</div>	
+		<div class="box">
+			<a id="rice", href="https://www.reddit.com/r/unixporn">r/unixporn</a>
+		</div>
+		
 	</div>
 	
 	<div id="logo">
@@ -107,6 +122,7 @@ Inspired By Solarized Dark ColorScheme
 		color: #dc322f;
 		font-size: 12px;
 		padding: 30px;
+		min-height: 30px;
 		border: 5px solid #073642;
 		background: #073642;
 		box-shadow: 0px 8px 20px 0px rgba(0,0,0,0.2);
@@ -118,16 +134,25 @@ Inspired By Solarized Dark ColorScheme
 		-ms-user-select: none;
 		user-select: none;
 	}
-	
-	a:link , a:visited{
+	div {
+		margin: 0;
+	}
+	.box {
+		display: block;
+		width: 80px;
+		float: left;
+		margin: 0px 10px 30px 10px;
+	}
+	a {
 		text-decoration: none;
+		text-align: center;
 		color: #93a1a1;
 		background-color:#073642;
 		border-style: 2px solid;
 		border-radius: 3px;
 		padding: 8px;
-		width: 200px;
-		height: 100px;
+		margin: 0;
+		display: inline;
 		
 		-webkit-touch-callout: none;
 		-webkit-user-select: none;
