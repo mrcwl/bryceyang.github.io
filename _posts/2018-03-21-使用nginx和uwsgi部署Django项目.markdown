@@ -14,7 +14,7 @@ redirect_from:
 ---
 **这段儿时间使用`Python3.6 + Django 1.11`模仿慕课网某课做了一个Django小项目，已经完成了基本功能。
 在基本功能完成之后，自然想部署起来，既可以学习一下部署相关知识，也可以展示一下自己的成果。
-本次部署采用Nginx+uwsgi的方式。至于为什么采用这种方式，uwsgi官方文档里有一段话说的很清楚：**
+本次部署采用Nginx+uWSGI的方式。至于为什么采用这种方式，uwsgi官方文档里有一段话说的很清楚：**
 > A web server faces the outside world. It can serve files (HTML, images, CSS, etc) directly from the file system. However, it can’t talk directly to Django applications; it needs something that will run the application, feed it requests from web clients (such as browsers) and return responses.
 A Web Server Gateway Interface - WSGI - does this job. WSGI is a Python standard.
 uWSGI is a WSGI implementation.
