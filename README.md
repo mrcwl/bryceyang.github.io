@@ -1,3 +1,5 @@
+#请fork修改的小伙伴务必更改或者去除我的google analytics id啊！！！
+
 # **Thanks for [the creator](http://yizeng.me) of this theme!** 
 
 # Simple Texture Jekyll Theme
