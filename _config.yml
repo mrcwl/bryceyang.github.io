@@ -24,14 +24,14 @@ sass:
   url: "https://mrcwl.github.io" 
 # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: /
-title: V
-description: "V is my learning record."
+title: Varon
+description: "Varon is my learning record."
 keywords: 'jekyll,theme,gem-based,blog'
 author:
   name: KAI
   job_title:
   location:
-  email: isyangkai@gmail.com
+  email: mr.chenweilong@gmail.com
   social_links:
     - name: facebook
       url:
@@ -48,16 +48,16 @@ author:
     - name: vk
       url:
 home:
-  section1: <h1>V</h1>
-  section2: <h2>V is my learning record.</h2>
+  section1: <h1>Varon</h1>
+  section2: <h2>Varon is my learning record.</h2>
  #section3: <div class="social-links"><a class="ico-github btn" href="https://github.com/bryceyang/bryceyang.github.io" title="View on GitHub"></a></div>
 blog:
   cc_license:  http://creativecommons.org/licenses/by-sa/4.0/
   cc_license_image: /assets/images/theme/cc-by-sa.png
-  footer_content: V is my learning record.
+  footer_content: Varon is my learning record.
 
 disqus:
-  shortname: bryceyang
+  shortname: chenweilong
   public_key: M1l4mNuPXdbLDtEyyCiWh6LN7HApjJEKtAtLStTeow2EGcPpw5dMpJMKe0sstvDO
 google_analytics: 'UA-100095499-1'
 addthis_public_id: # AddThis sharing plugin. See http://www.addthis.com/
